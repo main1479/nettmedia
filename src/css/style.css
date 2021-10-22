@@ -207,6 +207,9 @@ body::before {
 
 .floating {
   position: fixed;
+}
+.floating__links {
+  position: fixed;
   bottom: 0;
   right: 5%;
   width: 90%;
@@ -223,7 +226,6 @@ body::before {
   z-index: 8;
   overflow: hidden;
   transition: all 0.5s;
-  backface-visibility: hidden;
 }
 .floating__link {
   position: relative;
@@ -258,7 +260,7 @@ body::before {
   bottom: 20px;
   right: calc(5% + 2rem);
 }
-.floating.active {
+.floating.active .floating__links {
   width: 90%;
   height: 590px;
   padding: clamp(30px, 5vw, 6rem);
@@ -270,6 +272,18 @@ body::before {
 .floating.active .floating__overlay {
   width: 100%;
   height: 100vh;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1;
+}
+@supports not (backdrop-filter: blur(4px)) {
+  .floating.active .floating__overlay {
+    background: url(../img/bg.png);
+    background-size: cover;
+    background-attachment: fixed;
+  }
 }
 .floating.active .floating__button {
   box-shadow: 0 0 20px rgba(59, 42, 42, 0);
