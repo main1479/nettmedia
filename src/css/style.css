@@ -260,7 +260,7 @@ body::before {
 }
 .floating.active {
   width: 90%;
-  min-height: 590px;
+  height: 590px;
   padding: clamp(30px, 5vw, 6rem);
 }
 .floating.active .floating__link {
@@ -287,6 +287,11 @@ body::before {
   top: 0;
   transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
   transform: translate3d(0, 10px, 0) rotate(-45deg);
+}
+@media only screen and (max-height: 720px) {
+  .floating.active {
+    height: 400px;
+  }
 }
 
 @keyframes fadeUp {
