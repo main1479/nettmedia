@@ -1,0 +1,50 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style: none;
+	outline: none;
+}
+
+::selection {
+	background: $color-text;
+	color: #fff;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-size: 1.6rem;
+	font-family: $font-primary;
+	line-height: 1.6;
+	color: $color-text;
+	background: $color-secondary;
+	position: relative;
+	padding-top: 8.5rem;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 50%;
+		height: 100vh;
+		background: $color-primary;
+		z-index: -1;
+	}
+}
+
+.icon {
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+.container {
+	width: 90%;
+	margin: 0 auto;
+	background: #fff;
+}

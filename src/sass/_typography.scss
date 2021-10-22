@@ -1,0 +1,27 @@
+.heading {
+	font-family: $font-primary;
+	line-height: 1.2;
+}
+
+h1.heading {
+	margin-top: 12rem;
+	margin-bottom: 1rem;
+	font-size: clamp(30px, 6vw, 6rem);
+	font-weight: bold;
+	max-width: 25ch;
+}
+
+p.p__text {
+	font-size: 1.6rem;
+
+	&--big {
+		font-size: 1.8rem;
+		max-width: 60ch;
+	}
+}
+
+.link {
+	color: #355c87;
+	font-weight: 600;
+	opacity: 0.7;
+}

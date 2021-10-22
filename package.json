@@ -1,0 +1,13 @@
+{
+	"name": "nett-media",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "Mainul Islam",
+	"license": "MIT",
+	"scripts": {
+		"start": "sass src/sass/main.scss src/css/style.css -w"
+	},
+	"dependencies": {
+		"sass": "^1.43.2"
+	}
+}
