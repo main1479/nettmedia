@@ -8,6 +8,7 @@
 
 	.logo {
 		max-width: 19rem;
+		margin-right: 30px;
 		img {
 			width: 100%;
 		}
@@ -35,14 +36,49 @@
 	}
 	.profile {
 		display: none;
+		position: relative;
+		cursor: pointer;
+		// z-index: 5;
+
+		&__body {
+			position: absolute;
+			top: 40px;
+			right: 0;
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.2s;
+			z-index: 5;
+		}
+
+		&__overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 0;
+			z-index: 1;
+		}
+
+		&__link {
+			display: flex;
+			align-items: center;
+			color: $color-primary;
+		}
+
+		&.active {
+			.profile__overlay {
+				height: 100vh;
+			}
+		}
+
 		@media only screen and (max-width: $tab-land) {
-			display: block;
+			display: flex;
 			transition: all 0.3s;
 			svg {
 				fill: $color-primary;
-			}
-			&:hover {
-				opacity: 0.6;
+				&:hover {
+					opacity: 0.6;
+				}
 			}
 		}
 	}

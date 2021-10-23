@@ -67,6 +67,7 @@ body::before {
 .icon {
   width: 2.5rem;
   height: 2.5rem;
+  fill: currentColor;
 }
 
 .container {
@@ -79,7 +80,6 @@ body::before {
   width: 6rem;
   height: 6rem;
   padding: 1rem;
-  border-radius: 50%;
   display: inline-block;
   cursor: pointer;
   transition-property: opacity, filter;
@@ -163,6 +163,7 @@ body::before {
 }
 .nav .logo {
   max-width: 19rem;
+  margin-right: 30px;
 }
 .nav .logo img {
   width: 100%;
@@ -191,16 +192,43 @@ body::before {
 }
 .nav .profile {
   display: none;
+  position: relative;
+  cursor: pointer;
+}
+.nav .profile__body {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s;
+  z-index: 5;
+}
+.nav .profile__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  z-index: 1;
+}
+.nav .profile__link {
+  display: flex;
+  align-items: center;
+  color: #bc1123;
+}
+.nav .profile.active .profile__overlay {
+  height: 100vh;
 }
 @media only screen and (max-width: 62em) {
   .nav .profile {
-    display: block;
+    display: flex;
     transition: all 0.3s;
   }
   .nav .profile svg {
     fill: #bc1123;
   }
-  .nav .profile:hover {
+  .nav .profile svg:hover {
     opacity: 0.6;
   }
 }
@@ -262,8 +290,13 @@ body::before {
 }
 .floating.active .floating__links {
   width: 90%;
-  height: 590px;
+  height: 500px;
   padding: clamp(30px, 5vw, 6rem);
+}
+@media only screen and (max-height: 720px) {
+  .floating.active .floating__links {
+    height: 350px;
+  }
 }
 .floating.active .floating__link {
   transform: translateY(0);
@@ -301,11 +334,6 @@ body::before {
   top: 0;
   transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
   transform: translate3d(0, 10px, 0) rotate(-45deg);
-}
-@media only screen and (max-height: 720px) {
-  .floating.active {
-    height: 400px;
-  }
 }
 
 @keyframes fadeUp {
