@@ -11,6 +11,8 @@ floatingLinks.forEach((link, i) => {
 floatingTriggers.forEach((btn) => {
 	btn.addEventListener('click', function () {
 		floating.classList.toggle('active');
+		const body = profile.querySelector('.profile__body');
+		body.style.maxHeight = null;
 	});
 });
 
@@ -22,5 +24,4 @@ profile.addEventListener('click', (e) => {
 	} else {
 		body.style.maxHeight = body.scrollHeight + 5 + 'px';
 	}
-	if (e.target.closest('.profile__overlay')) body.style.maxHeight = null;
 });
